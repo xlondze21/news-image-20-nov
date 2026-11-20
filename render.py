@@ -197,7 +197,8 @@ def draw_leaf(draw, x, y, size):
 
 
 # ------------------------------------------------------------------ page
-def build():
+def build(target=None):
+    target = target or TARGET
     img = Image.new("RGB", (CANVAS_W, CANVAS_H), PAPER)
     d = ImageDraw.Draw(img)
 
@@ -289,8 +290,8 @@ def build():
            "Compiled from wire reports  ·  20 November 2026  ·  Drawn by program, no photos",
            font=regular(15), fill=GRAY)
 
-    img.save(TARGET, format="PNG", optimize=True)
-    print("wrote", TARGET, os.path.getsize(TARGET), "bytes")
+    img.save(target, format="PNG", optimize=True)
+    print("wrote", target, os.path.getsize(target), "bytes")
 
 
 if __name__ == "__main__":
